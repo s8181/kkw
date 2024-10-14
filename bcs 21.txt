@@ -1,0 +1,122 @@
+Slip 21
+import java.io.*;
+
+public class Slip21a
+{
+ public static void main(String[] args)
+ {
+  String fileName = "input.txt"; // Hardcoded file name
+
+  try (FileReader fileReader = new FileReader(fileName);
+       BufferedReader bufferedReader = new BufferedReader(fileReader))
+  {
+   String line;
+   while ((line = bufferedReader.readLine()) != null)
+   {
+    String[] words = line.split(" ");
+    for (String word : words)
+    {
+     String reversedWord = reverseWord(word);
+     System.out.print(reversedWord + " ");
+    }
+   }
+  }
+  catch (FileNotFoundException e)
+  {
+   System.out.println("File not found: " + fileName);
+  }
+  catch (IOException e)
+  {
+   System.out.println("Error reading the file: " + e.getMessage());
+  }
+ }
+
+ public static String reverseWord(String word)
+ {
+  char[] wordChars = word.toCharArray();
+  int left = 0;
+  int right = wordChars.length - 1;
+
+  while (left < right)
+  {
+   char temp = wordChars[left];
+   wordChars[left] = wordChars[right];
+   wordChars[right] = temp;
+
+   left++;
+   right--;
+  }
+
+  return new String(wordChars);
+ }
+}
+
+Slip 21
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class Slip21b
+{
+ public static void main(String[] args)
+ {
+  Hashtable<String, String> cityStdCodes = new Hashtable<>();
+
+  cityStdCodes.put("City1", "STD1");
+  cityStdCodes.put("City2", "STD2");
+  cityStdCodes.put("City3", "STD3");
+
+  System.out.println("Hashtable Details:");
+  System.out.println("------------------");
+  for (String city : cityStdCodes.keySet())
+  {
+   System.out.println("City: " + city + ", STD Code: " + cityStdCodes.get(city));
+  }
+
+  Scanner scanner = new Scanner(System.in);
+  System.out.print("\nEnter the city to search for: ");
+  String searchCity = scanner.nextLine();
+
+  if (cityStdCodes.containsKey(searchCity))
+  {
+   System.out.println("STD Code for " + searchCity + ": " + cityStdCodes.get(searchCity));
+  }
+  else
+  {
+   System.out.println("City not found in the hashtable.");
+  }
+  scanner.close();
+ }
+}
+
+Slip 21
+class Rectangle:
+ def __init__(self, length, width):
+  self.length = length
+  self.width = width
+
+ def area(self):
+  return self.length * self.width
+
+ def perimeter(self):
+  return 2 * (self.length + self.width)
+
+# Example usage
+length = float(input("Enter the length of the rectangle: "))
+width = float(input("Enter the width of the rectangle: "))
+
+rectangle = Rectangle(length, width)
+
+print(f"Area of the rectangle: {rectangle.area()}")
+print(f"Perimeter of the rectangle: {rectangle.perimeter()}")
+
+
+Slip 21
+# Original tuple of string values
+original_tuple = (('333', '33'), ('1416', '55'))
+
+# Convert tuple of string values to tuple of integer values
+converted_tuple = tuple(tuple(int(x) for x in sub_tuple) for sub_tuple in original_tuple)
+
+print("Original tuple values:", original_tuple)
+print("New tuple values:", converted_tuple)
+

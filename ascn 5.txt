@@ -1,0 +1,83 @@
+Slip 5
+public class Slip5a
+{
+	public static void main(String[] args)
+	{
+		int n = 5; // Number of rows
+
+		// Loop through each row
+		for (int i = 1; i <= n; i++)
+		{
+			// Loop to print numbers in each row
+			for (int j = n - i + 1; j <= n; j++)
+			{
+				System.out.print(j + " ");
+			}
+			System.out.println(); // Move to the next line after each row
+		}
+	}
+}
+
+Slip 5
+import java.io.*;
+
+public class Slip5b {
+	public static void main(String[] args) {
+
+		try {
+			for (int i = 0; i < args.length; i++) {
+				File file = new File(args[i]);
+				if (args[i].endsWith(".txt")) {
+					if (file.delete()) {
+						System.out.println("File Type IS txt Deleted!: " + args[i]);
+					}
+				} else {
+					System.out.println("File Name is: " + file.getName());
+					System.out.println("File Loaction: " + file.getAbsolutePath());
+					System.out.println("File Size in bytes: " + file.length());
+				}
+				System.err.println("");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+Slip 5
+class StringManipulator:
+ def __init__(self):
+  self.text = ""
+
+ def get_String(self):
+  self.text = input("Enter a string: ")
+
+ def print_String(self):
+  print(self.text.upper())
+
+# Create an instance of StringManipulator
+string_manipulator = StringManipulator()
+
+# Accept a string from the user
+string_manipulator.get_String()
+
+# Print the string in uppercase
+string_manipulator.print_String()
+
+Slip 5
+def fibonacci_generator():
+ a, b = 0, 1
+ while True:
+  yield a
+  a, b = b, a + b
+
+# Create a generator object
+fib_gen = fibonacci_generator()
+
+# Number of Fibonacci terms to generate
+n = int(input("Enter the number of Fibonacci terms to generate: "))
+
+# Generate and print Fibonacci terms
+for _ in range(n):
+  print(next(fib_gen))

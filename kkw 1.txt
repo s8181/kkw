@@ -1,0 +1,112 @@
+class Slip1A {
+	public static void main(String args[]) {
+		for (char c = 'A'; c <= 'Z'; c++) {
+			System.out.print(c + " ");
+		}
+		System.out.println();
+	}
+}
+
+import java.io.*;
+import java.util.*;
+
+public class Slip1b {
+	public static void main(String[] args) {
+		File inputFile = new File("input.txt");
+		File outputFile = new File("output.txt");
+
+		try {
+			Scanner sc = new Scanner(inputFile);
+			BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile, true));
+
+			while (sc.hasNextLine()) {
+				String line = sc.nextLine();
+				if (line.matches(".*\d.*")) {
+					continue;
+				} else {
+					writer.write(line);
+					writer.newLine();
+					System.out.println("Content Written: " + line);
+				}
+			}
+
+			writer.close();
+			sc.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+Slip 1
+import java.io.*;
+import java.util.*;
+
+public class Slip1b {
+	public static void main(String[] args) {
+		File inputFile = new File("input.txt");
+		File outputFile = new File("output.txt");
+
+		try {
+			Scanner sc = new Scanner(inputFile);
+			BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile, true));
+
+			while (sc.hasNextLine()) {
+				String line = sc.nextLine();
+				if (line.matches(".*\d.*")) {
+					continue;
+				} else {
+					writer.write(line);
+					writer.newLine();
+					System.out.println("Content Written: " + line);
+				}
+			}
+
+			writer.close();
+			sc.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+
+Slip 1
+# Read input numbers
+numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
+
+# Remove duplicates
+unique_numbers = list(set(numbers))
+
+# Print result
+print("List after removing duplicates:", unique_numbers)
+
+
+Slip 1
+import tkinter as tk
+from tkinter import messagebox
+from datetime import datetime
+
+def calculate_age():
+ try:
+  birthdate = datetime.strptime(entry.get(), "%Y-%m-%d")
+  today = datetime.today()
+  age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
+  messagebox.showinfo("Age", f"Your age is {age} years old.")
+ except ValueError:
+  messagebox.showerror("Invalid Input", "Enter date in YYYY-MM-DD format.")
+
+# Create the main window
+root = tk.Tk()
+root.title("Age Calculator")
+
+# Create and place widgets
+tk.Label(root, text="Enter your birthdate (YYYY-MM-DD):").pack(pady=10)
+entry = tk.Entry(root)
+entry.pack(pady=5)
+tk.Button(root, text="Calculate Age", command=calculate_age).pack(pady=20)
+
+# Start the GUI event loop
+root.mainloop()
+
+ 

@@ -1,0 +1,147 @@
+Slip 28
+public class Slip28a {
+ public static void main(String[] args) {
+  int count = 0;
+
+  for (String arg : args) {
+   try {
+    int num = Integer.parseInt(arg);
+    count++;
+   } catch (NumberFormatException e) {
+   }
+
+  }
+
+  System.out.println("Number of integers in the list: " + count);
+ }
+}
+
+Slip 28
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Slip28b extends JFrame {
+
+ private DefaultTableModel tableModel;
+ private JTable employeeTable;
+ private JTextField enoField, enameField, salaryField;
+ private JButton addButton;
+
+ public Slip28b() {
+  setTitle("Employee Details");
+
+  initializeUI();
+  setVisible(true);
+  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  setSize(500, 400);
+  setLocationRelativeTo(null);
+ }
+
+ private void initializeUI() {
+  tableModel = new DefaultTableModel();
+  tableModel.addColumn("Employee Number");
+  tableModel.addColumn("Employee Name");
+  tableModel.addColumn("Salary");
+
+  employeeTable = new JTable(tableModel);
+
+  JPanel inputPanel = new JPanel(new GridLayout(2, 3, 5, 5));
+
+  enoField = new JTextField(10);
+  enameField = new JTextField(10);
+  salaryField = new JTextField(10);
+  addButton = new JButton("Add Employee");
+
+  inputPanel.add(new JLabel("Employee Number:"));
+  inputPanel.add(enoField);
+  inputPanel.add(new JLabel("Employee Name:"));
+  inputPanel.add(enameField);
+  inputPanel.add(new JLabel("Salary:"));
+  inputPanel.add(salaryField);
+  inputPanel.add(addButton);
+
+  addButton.addActionListener(new ActionListener() {
+   @Override
+   public void actionPerformed(ActionEvent e) {
+    addEmployee();
+   }
+  });
+
+  getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+  getContentPane().add(new JScrollPane(employeeTable));
+  getContentPane().add(inputPanel);
+ }
+
+ private void addEmployee() {
+  String eno = enoField.getText();
+  String ename = enameField.getText();
+  String salary = salaryField.getText();
+
+  if (!eno.isEmpty() && !ename.isEmpty() && !salary.isEmpty()) {
+   tableModel.addRow(new String[] { eno, ename, salary });
+   enoField.setText("");
+   enameField.setText("");
+   salaryField.setText("");
+  } else {
+   JOptionPane.showMessageDialog(this, "Please enter all details.");
+  }
+ }
+
+ public static void main(String[] args) {
+  new Slip28b();
+ }
+}
+
+Slip 28
+import tkinter as tk
+
+def create_course_list():
+ # List of Computer Science courses
+ courses = [
+  "Introduction to Programming",
+  "Data Structures and Algorithms",
+  "Computer Networks",
+  "Operating Systems",
+  "Database Systems",
+  "Software Engineering",
+  "Artificial Intelligence",
+  "Machine Learning",
+  "Computer Graphics",
+  "Cybersecurity"
+ ]
+ 
+ # Populate the Listbox with courses
+ for course in courses:
+  listbox.insert(tk.END, course)
+
+# Set up the main window
+root = tk.Tk()
+root.title("Computer Science Courses")
+
+# Create and place the Listbox widget
+listbox = tk.Listbox(root, width=50, height=10)
+listbox.pack(pady=20)
+
+# Create and populate the course list
+create_course_list()
+
+# Run the application
+root.mainloop()
+
+
+Slip 28
+def merge_lists_to_tuples(list1, list2):
+ # Merge the two lists into a list of tuples
+ return list(zip(list1, list2))
+
+# Example usage
+list1 = input("Enter the first list of elements separated by spaces: ").split()
+list2 = input("Enter the second list of elements separated by spaces: ").split()
+
+# Convert the input lists to tuples
+merged_list = merge_lists_to_tuples(list1, list2)
+
+print("Merged list of tuples:", merged_list)

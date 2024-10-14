@@ -1,0 +1,93 @@
+import java.util.Scanner;
+public class Slip2a {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.print("Enter a string: ");
+		String inputString = scanner.nextLine();
+
+		System.out.println("Vowels in the input string:");
+
+		inputString = inputString.toLowerCase();
+
+		for (int i = 0; i < inputString.length(); i++) {
+			char ch = inputString.charAt(i);
+			if (isVowel(ch)) {
+				System.out.print(ch + " ");
+			}
+		}
+
+		scanner.close();
+	}
+
+	public static boolean isVowel(char c) {
+		return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+	}
+}
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Slip2b {
+	public static void main(String[] args) {
+		EventQueue.invokeLater(() -> {
+			JFrame frame = new JFrame("Mouse Events Demo");
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+			JTextField textField = new JTextField("Mouse Event Information");
+			textField.setEditable(false);
+			frame.add(textField, BorderLayout.SOUTH);
+
+			JPanel panel = new JPanel();
+			frame.add(panel, BorderLayout.CENTER);
+
+			panel.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					int x = e.getX();
+					int y = e.getY();
+					textField.setText("Mouse Clicked at: (" + x + ", " + y + ")");
+				}
+			});
+
+			frame.setSize(400, 400);
+			frame.setVisible(true);
+		});
+	}
+}
+
+Slip 2
+def count_case(s):
+ upper_count = sum(1 for char in s if char.isupper())
+ lower_count = sum(1 for char in s if char.islower())
+ print(f"No. of Upper case characters: {upper_count}")
+ print(f"No. of Lower case characters: {lower_count}")
+
+# Example usage
+sample_string = 'The quick Brown Fox'
+count_case(sample_string)
+
+Slip 2
+import tkinter as tk
+from time import strftime
+
+def update_time():
+ time_string = strftime('%H:%M:%S %p')
+ label.config(text=time_string)
+ label.after(1000, update_time)  # Update the time every 1000ms (1 second)
+
+# Create the main window
+root = tk.Tk()
+root.title("Digital Clock")
+
+# Create and place the label widget
+label = tk.Label(root, font=('calibri', 40, 'bold'), background='black', foreground='white')
+label.pack(anchor='center')
+
+# Start the time update loop
+update_time()
+
+# Start the GUI event loop
+root.mainloop()

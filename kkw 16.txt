@@ -1,0 +1,147 @@
+Slip 16
+import java.util.Scanner;
+
+public class Slip16a
+{
+ public static void main(String[] args)
+ {
+  Scanner scanner = new Scanner(System.in);
+
+  System.out.print("Enter a number: ");
+  long number = scanner.nextLong();
+
+  if (number < 0)
+  {
+   System.out.println("Please enter a non-negative number.");
+  }
+  else
+  {
+   int sum = calculateSumOfDigits(number);
+   System.out.println("Sum of digits: " + sum);
+  }
+  scanner.close();
+ }
+
+ public static int calculateSumOfDigits(long number)
+ {
+  if (number == 0)
+  {
+   return 0; // Base case: when there are no more digits
+  }
+  else
+  {
+   return (int)(number % 10) + calculateSumOfDigits(number / 10);
+  }
+ }
+}
+
+Slip 16
+import java.util.Arrays;
+import java.util.Scanner;
+
+class Employee
+{
+ String name;
+
+ public Employee(String name)
+ {
+  this.name = name;
+ }
+}
+
+public class Slip16b
+{
+ public static void main(String[] args)
+ {
+  Scanner scanner = new Scanner(System.in);
+
+  System.out.print("Enter the number of employees: ");
+  int n = scanner.nextInt();
+  scanner.nextLine();
+
+  Employee[] employees = new Employee[n];
+
+  for (int i = 0; i < n; i++)
+  {
+   System.out.print("Enter name for Employee " + (i + 1) + ": ");
+   String name = scanner.nextLine();
+   employees[i] = new Employee(name);
+  }
+
+  Arrays.sort(employees, (v1, v2) -> v1.name.compareToIgnoreCase(v2.name));
+
+  // Display the sorted employee names
+  System.out.println("\nSorted Employee Names:");
+
+  for (int i = 0; i < n; i++)
+  {
+   System.out.println("Employee " + (i + 1) + ": " + employees[i].name);
+  }
+
+  scanner.close();
+ }
+}
+
+Slip 16
+class Rectangle:
+ def __init__(self, length, width):
+  self.length = length
+  self.width = width
+
+ def area(self):
+  return self.length * self.width
+
+ def perimeter(self):
+  return 2 * (self.length + self.width)
+
+# Example usage
+rect = Rectangle(5, 3)
+print(f"Area: {rect.area()}")
+print(f"Perimeter: {rect.perimeter()}")
+
+
+Slip 16
+import tkinter as tk
+from tkinter import messagebox
+
+def add_item():
+ item = entry.get()
+ if item:
+  listbox.insert(tk.END, item)
+  entry.delete(0, tk.END)
+ else:
+  messagebox.showwarning("Warning", "Please enter an item.")
+
+def print_selected():
+ selected = listbox.curselection()
+ if selected:
+  item = listbox.get(selected[0])
+  messagebox.showinfo("Selected Item", f"Selected item: {item}")
+ else:
+  messagebox.showwarning("Warning", "No item selected.")
+
+def delete_selected():
+ selected = listbox.curselection()
+ if selected:
+  listbox.delete(selected[0])
+ else:
+  messagebox.showwarning("Warning", "No item selected.")
+
+# Set up the main window
+root = tk.Tk()
+root.title("Listbox Manager")
+
+# Create and place the widgets
+entry = tk.Entry(root)
+entry.pack(pady=10)
+
+tk.Button(root, text="Add Item", command=add_item).pack(pady=5)
+tk.Button(root, text="Print Selected", command=print_selected).pack(pady=5)
+tk.Button(root, text="Delete Selected", command=delete_selected).pack(pady=5)
+
+listbox = tk.Listbox(root)
+listbox.pack(pady=10)
+
+# Run the application
+root.mainloop()
+

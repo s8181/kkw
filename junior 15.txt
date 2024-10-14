@@ -1,0 +1,126 @@
+Slip 15
+import java.util.Scanner;
+
+public class Slip15a
+{
+ public static void main(String[] args)
+ {
+  Scanner scanner = new Scanner(System.in);
+
+  // Sample array of names
+  String[] names = {"Alice", "Bob", "Charlie", "David", "Eve"};
+
+  System.out.print("Enter the name to search: ");
+  String searchName = scanner.nextLine();
+
+  int index = searchName(names, searchName);
+
+  if (index != -1)
+  {
+   System.out.println("Name found at index " + index);
+  }
+  else
+  {
+   System.out.println("Name not found in the array.");
+  }
+  scanner.close();
+ }
+
+ public static int searchName(String[] array, String name)
+ {
+  for (int i = 0; i < array.length; i++)
+  {
+   if (array[i].equals(name))
+   {
+    return i;
+   }
+  }
+  return -1;
+ }
+}
+
+Slip 15
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+class SmileyFace extends JPanel
+{
+ @Override
+ protected void paintComponent(Graphics g)
+ {
+  super.paintComponent(g);
+  g.setColor(Color.YELLOW);
+  g.fillOval(10, 10, 200, 200);
+
+  g.setColor(Color.BLACK);
+  g.fillOval(55, 65, 30, 30);
+  g.fillOval(135, 65, 30, 30);
+
+  g.fillOval(50, 110, 120, 60);
+
+  g.setColor(Color.YELLOW);
+  g.fillRect(50, 110, 120, 30);
+  g.fillOval(50, 120, 120, 40);
+ }
+}
+
+public class Slip15b
+{
+ public static void main(String[] args)
+ {
+  SmileyFace panel = new SmileyFace();
+  JFrame app = new JFrame();
+  app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  app.add(panel);
+  app.setSize(230, 250);
+  app.setTitle("Smiley");
+  app.setVisible(true);
+ }
+}
+
+Slip 15
+class Student:
+ def __init__(self, student_name, marks):
+  self.student_name = student_name
+  self.marks = marks
+
+ def modify_attributes(self, new_name, new_marks):
+  self.student_name = new_name
+  self.marks = new_marks
+
+ def print_attributes(self):
+  print(f"Student Name: {self.student_name}")
+  print(f"Marks: {self.marks}")
+
+# Create a Student object
+student = Student("John Doe", 85)
+
+# Print original values
+print("Original values:")
+student.print_attributes()
+
+# Modify attributes
+student.modify_attributes("Jane Smith", 92)
+
+# Print modified values
+print("
+Modified values:")
+student.print_attributes()
+
+
+Slip 15
+def remove_odd_index_chars(s):
+ # Remove characters at odd indices
+ return ''.join(char for index, char in enumerate(s) if index % 2 == 0)
+
+def main():
+ user_input = input("Enter a string: ")
+ result = remove_odd_index_chars(user_input)
+ print(f"Modified string: {result}")
+
+if __name__ == "__main__":
+ main()
+
+

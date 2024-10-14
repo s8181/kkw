@@ -1,0 +1,137 @@
+Slip 11
+public class Slip11a
+{
+ public static void main(String[] args)
+ {
+  if (args.length < 3)
+  {
+   System.out.println("Usage: Calculator <operation> <operand1> <operand2>");
+   return;
+  }
+  String operation = args[0];
+  double operand1 = Double.parseDouble(args[1]);
+  double operand2 = Double.parseDouble(args[2]);
+  double result = 0;
+  switch (operation)
+  {
+   case "1":
+   case "add":
+   case "addition":
+    result = operand1 + operand2;
+    break;
+   case "2":
+   case "sub":
+   case "subtraction":
+    result = operand1 - operand2;
+    break;
+   case "3":
+   case "mul":
+   case "multiplication":
+    result = operand1 * operand2;
+    break;
+   case "4":
+   case "div":
+   case "division":
+    if (operand2 == 0)
+    {
+     System.out.println("Error: Division by zero is not allowed.");
+     return;
+    }
+    result = operand1 / operand2;
+    break;
+   default:
+    System.out.println("Invalid operation. Please choose 1, 2, 3, or 4.");
+    return;
+  }
+  System.out.println("Result: " + result);
+ }
+}
+
+Slip 11
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.util.*;
+
+class Lamp extends JPanel
+{
+ @Override
+ protected void paintComponent(Graphics g)
+ {
+  super.paintComponent(g);
+  Random rand = new Random();
+  int r = rand.nextInt(256);
+  int gr = rand.nextInt(256);
+  int b = rand.nextInt(256);
+  Color c1 = new Color(r, gr, b);
+  g.drawRect(0, 250, 290, 29);
+  g.drawLine(125, 250, 125, 160);
+  g.drawLine(175, 250, 175, 160);
+  g.drawArc(85, 157, 130, 50, -65, 312);
+  g.drawArc(85, 87, 130, 50, 62, 58);
+  g.drawLine(85, 177, 119, 89);
+  g.drawLine(215, 177, 181, 89);
+  g.setColor(c1);
+  g.fillArc(78, 120, 40, 40, 63, -174);
+  g.fillOval(120, 96, 40, 40);
+  g.fillArc(173, 100, 40, 40, 110, 100);
+ }
+}
+
+public class Slip11b
+{
+ public static void main(String[] args)
+ {
+  Lamp panel = new Lamp();
+  JFrame app = new JFrame();
+  app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  app.add(panel);
+  app.setSize(300, 300);
+  app.setTitle("Table Lamp");
+  app.setVisible(true);
+ }
+}
+
+Slip 11
+# Given tuples
+t1 = (1, 2, 3, 4)
+t2 = (3, 5, 2, 1)
+t3 = (2, 2, 3, 1)
+
+# Compute element-wise sum
+result = tuple(a + b + c for a, b, c in zip(t1, t2, t3))
+
+# Output result
+print("Element-wise sum:", result)
+
+Slip 11
+import tkinter as tk
+
+def change_bg(color):
+ root.config(bg=color)
+
+# Create the main window
+root = tk.Tk()
+root.title("Background Color Changer")
+root.geometry("300x200")
+
+# Create a menu bar
+menu_bar = tk.Menu(root)
+
+# Create a Color menu
+color_menu = tk.Menu(menu_bar, tearoff=0)
+color_menu.add_command(label="Red", command=lambda: change_bg("red"))
+color_menu.add_command(label="Green", command=lambda: change_bg("green"))
+color_menu.add_command(label="Blue", command=lambda: change_bg("blue"))
+color_menu.add_command(label="Yellow", command=lambda: change_bg("yellow"))
+
+# Add the Color menu to the menu bar
+menu_bar.add_cascade(label="Colors", menu=color_menu)
+
+# Configure the menu bar in the main window
+root.config(menu=menu_bar)
+
+# Start the GUI event loop
+root.mainloop()
+

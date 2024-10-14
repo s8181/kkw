@@ -1,0 +1,152 @@
+Slip 25
+import java.util.Scanner;
+
+public class Slip25a
+{
+ public static void main(String[] args)
+ {
+  Scanner scanner = new Scanner(System.in);
+  System.out.print("Enter a string: ");
+  String input = scanner.nextLine();
+  if (isPalindrome(input))
+  {
+   System.out.println("The string is a palindrome.");
+  }
+  else
+  {
+   System.out.println("The string is not a palindrome.");
+  }
+  scanner.close();
+ }
+
+ public static boolean isPalindrome(String str)
+ {
+  str = str.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+  int left = 0;
+  int right = str.length() - 1;
+  while (left < right)
+  {
+   if (str.charAt(left) != str.charAt(right))
+   {
+    return false;
+   }
+   left++;
+   right--;
+  }
+  return true;
+ }
+}
+
+Slip 25
+/*
+ package Series;
+
+public class FibonacciSeries {
+ public static void generateSeries(int n) {
+  int firstTerm = 0, secondTerm = 1;
+  System.out.println("Fibonacci Series:");
+
+  for (int i = 0; i < n; i++) {
+   System.out.print(firstTerm + " ");
+   int nextTerm = firstTerm + secondTerm;
+   firstTerm = secondTerm;
+   secondTerm = nextTerm;
+  }
+
+  System.out.println("\n---------------------");
+ }
+}
+
+
+package Series;
+
+public class CubeSeries {
+ public static void generateSeries(int n) {
+  System.out.println("Cube Series:");
+
+  for (int i = 1; i <= n; i++) {
+   int cube = i * i * i;
+   System.out.print(cube + " ");
+  }
+
+  System.out.println("\n---------------------");
+ }
+}
+
+
+package Series;
+
+public class SquareSeries {
+ public static void generateSeries(int n) {
+  System.out.println("Square Series:");
+
+  for (int i = 1; i <= n; i++) {
+   int square = i * i;
+   System.out.print(square + " ");
+  }
+
+  System.out.println("\n---------------------");
+ }
+}
+
+ */
+import Series.FibonacciSeries;
+import Series.CubeSeries;
+import Series.SquareSeries;
+
+public class Slip25b {
+ public static void main(String[] args) {
+  int n = 10; 
+
+  FibonacciSeries.generateSeries(n);
+  CubeSeries.generateSeries(n);
+  SquareSeries.generateSeries(n);
+ }
+}
+
+Slip 25
+def count_case_letters(s):
+ upper_count = sum(1 for char in s if char.isupper())
+ lower_count = sum(1 for char in s if char.islower())
+ return upper_count, lower_count
+
+# Example usage
+sample_string = 'The quick Brow Fox'
+upper_count, lower_count = count_case_letters(sample_string)
+
+print(f"No. of Upper case characters: {upper_count}")
+print(f"No. of Lower case characters: {lower_count}")
+
+
+Slip 25
+class Calculator:
+ def add(self, a, b):
+  return a + b
+
+ def subtract(self, a, b):
+  return a - b
+
+ def multiply(self, a, b):
+  return a * b
+
+ def divide(self, a, b):
+  if b != 0:
+   return a / b
+  else:
+   raise ValueError("Cannot divide by zero")
+
+# Example usage
+calc = Calculator()
+
+# Input numbers
+a = float(input("Enter the first number: "))
+b = float(input("Enter the second number: "))
+
+# Perform operations
+print(f"Addition: {calc.add(a, b)}")
+print(f"Subtraction: {calc.subtract(a, b)}")
+print(f"Multiplication: {calc.multiply(a, b)}")
+try:
+ print(f"Division: {calc.divide(a, b)}")
+except ValueError as e:
+ print(e)
